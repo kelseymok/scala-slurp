@@ -6,11 +6,13 @@ class DataTransformer(spark: SparkSession) {
   import spark.implicits._
 
   def getNonLegendary(df: DataFrame): DataFrame = {
-    df.filter($"is_legendary" === 0)
+    // HINT: What field defines a legendary vs non-legendary Pokemon?
+    ???
   }
 
   def getLegendary(df: DataFrame): DataFrame = {
-    df.filter($"is_legendary" > 0)
+    // HINT: What field defines a legendary vs non-legendary Pokemon?
+    ???
   }
 
   def writeToS3Bucket(bucketName: String, bucketPath: String, df: DataFrame): Unit = {

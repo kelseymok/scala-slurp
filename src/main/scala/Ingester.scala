@@ -5,11 +5,10 @@ import org.apache.spark.sql.{DataFrame, SparkSession}
 class Ingester(spark: SparkSession) {
 
   def read(): DataFrame = {
+
+    // HINT: What options do you need to add in order to process this csv?
+
     val df = spark.read
-      .option("delimiter", ",")
-      .option("header", "true")
-      .option("quote","")
-      .option("inferSchema", "true")
       .csv("src/main/resources/pokemon.csv")
     df
   }

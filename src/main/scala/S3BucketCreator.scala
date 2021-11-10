@@ -6,7 +6,10 @@ import software.amazon.awssdk.services.s3.model.CreateBucketRequest
 class S3BucketCreator(s3Client: S3Client) {
 
   def create(name: String): Unit = {
-    s3Client.createBucket(CreateBucketRequest.builder().bucket(name).build())
+    val createBucketRequest = ???
+
+    // HINT: what client methods exist for s3Client? Press command + b to view the source code.
+    ???
   }
 
 }

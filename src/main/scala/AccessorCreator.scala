@@ -1,25 +1,30 @@
 package org.scala.slurp
 
 import software.amazon.awssdk.services.iam.IamClient
-import software.amazon.awssdk.services.iam.model.{AttachRolePolicyRequest, AttachRolePolicyResponse, CreatePolicyRequest, CreateRoleRequest, CreateRoleResponse}
+import software.amazon.awssdk.services.iam.model.{AttachRolePolicyRequest, AttachRolePolicyResponse, CreatePolicyRequest, CreatePolicyResponse, CreateRoleRequest, CreateRoleResponse}
 
 
 class AccessorCreator(iamClient: IamClient) {
   def createRole(name: String, assumeRolePolicyDocument: String): CreateRoleResponse = {
-    val request = CreateRoleRequest.builder()
-      .roleName(name)
-      .assumeRolePolicyDocument(assumeRolePolicyDocument)
-      .build()
-    iamClient.createRole(request)
+    val request: CreateRoleRequest = ???
+
+    // HINT: What methods exist for iamClient? Press command + b to view the source code
+    ???
   }
 
   def createPolicy(policyDocument: String): String = {
-    val policyRequest = CreatePolicyRequest.builder().policyDocument(policyDocument).build()
-    iamClient.createPolicy(policyRequest).policy().arn()
+    val policyRequest: CreatePolicyRequest = ???
+
+    // HINT: What methods exist for iamClient? Press command + b to view the source code
+    val response: CreatePolicyResponse = ???
+
+    response.policy().arn()
   }
 
   def attachPolicy(roleName: String, policyArn: String) : AttachRolePolicyResponse = {
-    val rolePolicyRequest = AttachRolePolicyRequest.builder().roleName(roleName).policyArn(policyArn).build()
-    iamClient.attachRolePolicy(rolePolicyRequest)
+    val rolePolicyRequest: AttachRolePolicyRequest = ???
+
+    // HINT: What methods exist for iamClient? Press command + b to view the source code
+    ???
   }
 }
